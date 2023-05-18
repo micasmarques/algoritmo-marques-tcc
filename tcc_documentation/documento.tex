@@ -1,0 +1,169 @@
+\documentclass[        
+    a4paper,          % Tamanho da folha A4
+    12pt,             % Tamanho da fonte 12pt
+    chapter=TITLE,    % Todos os capitulos devem ter caixa alta
+    section=Title,    % Todas as secoes devem ter caixa alta somente na primeira letra
+    subsection=Title, % Todas as subsecoes devem ter caixa alta somente na primeira letra
+    oneside,          % Usada para impressao em apenas uma face do papel
+    english,          % Hifenizacoes em ingles
+    spanish,          % Hifenizacoes em espanhol
+    brazil,           % Ultimo idioma eh o idioma padrao do documento
+    fleqn,            % Comente esta linha se quiser centralizar as equacoes. Comente também a linha 65 abaixo
+]{abntex2}
+
+\input{lib/preambulo}
+
+\setlength{\mathindent}{0pt} %Complementa o alinhamento de equações para totalmente a esquerda.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                     ATENCAO                     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Qual e o nivel do trabalho academico que voce esta 
+% escrevendo? Retire o simbolo "%" apenas de um dos 
+% quatro topicos abaixo refente ao nível do seu traba
+% -lho.
+
+\trabalhoacademico{tccgraduacao}
+%\trabalhoacademico{tccespecializacao}
+% \trabalhoacademico{dissertacao}
+%\trabalhoacademico{tese}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define se o trabalho e uma qualificacao
+% Coloque 'nao' para versao final do trabalho
+
+\ehqualificacao{nao}
+
+% Remove as bordas vermelhas e verdes do PDF gerado
+% Coloque 'sim' pare remover
+
+\removerbordasdohyperlink{sim} 
+
+% Adiciona a cor Azul a todos os hyperlinks
+
+\cordohyperlink{nao}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         Informacao sobre a instituicao          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ies{Instituto Federal de Educação, Ciência e Tecnologia da Paraíba}
+\iessigla{IFPB}
+\centro{Campus Campina Grande}
+\departamento{Coordenação da Área de Informática}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%        Informacao para TCC de Graduacao         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graduacaoem{Engenharia de Computação}
+\habilitacao{bacharel} % Ou licenciado(a)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%      Informacoes relacionadas ao trabalho       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\autor{Micael Marques Rodrigues Silva} 
+\titulo{Sumarização automática de textos: desafios e avanços em técnicas de processamento de linguagem natural}
+\data{2023}
+\local{Campina Grande}
+
+% Exemplo: \dataaprovacao{01 de Janeiro de 2012}
+\dataaprovacao{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%           Informação sobre o Orientador         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\orientador{Prof. Dr. Alysson Filgueira Milanez}
+\orientadories{Universidade Federal Rural do Semi-Árido (UFERSA)}
+\orientadorcentro{Departamento de Engenharias e Tecnologia (DETEC)} % opicional
+\orientadorfeminino{nao} % Coloque 'sim' se for do sexo feminino
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%          Informação sobre o Coorientador        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Deixe o nome do coorientador em branco para remover do documento
+
+\coorientador{}
+\coorientadories{SIGLA}
+\coorientadorcentro{Centro do Coorientador (SIGLA)} % opicional
+\coorientadorfeminino{nao} % Coloque 'sim' se for do sexo feminino
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%              Informação sobre a banca           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Atenção! Deixe em branco o nome do membro da banca para remover da folha de aprovacao
+
+% Exemplo de uso:
+% \membrodabancadois{Prof. Dr. Fulano de Tal}
+% \membrodabancadoisies{Universidade Federal do Ceará - UFC}
+
+\membrodabancadois{Profa. Dra. Ianna Maria Sodré Ferreira De Sousa}
+\membrodabancadoiscentro{COAIN}
+\membrodabancadoisies{Instituto Federal da Paraiba (IFPB)}
+\membrodabancatres{Prof. Dr. Katyusco de Farias Santos}
+\membrodabancatrescentro{COAIN}
+\membrodabancatresies{Instituto Federal da Paraiba (IFPB)}
+% \membrodabancaquatro{}
+% \membrodabancaquatrocentro{}
+% \membrodabancaquatroies{SIGLA}
+% \membrodabancacinco{Prof. Dr. Xxxxxxx Xxxxxx Xxxxxxx}
+% \membrodabancacincocentro{Teste}
+% \membrodabancacincoies{Universidade do Membro da Banca Cinco (SIGLA)}
+% \membrodabancaseis{Prof. Dr. Xxxxxxx Xxxxxx Xxxxxxx}
+% \membrodabancaseiscentro{}
+% \membrodabancaseisies{Universidade do Membro da Banca Seis (SIGLA)}
+  
+\begin{document}	
+
+	% Elementos pré-textuais
+	\imprimircapa
+	\imprimirfolhaderosto{}
+% 	\imprimirfichacatalografica{1-pre-textuais/ficha-catalografica} %  gerada pela biblioteca 
+	\imprimirfolhadeaprovacao 
+	% \imprimirdedicatoria{1-pre-textuais/dedicatoria}
+	\imprimiragradecimentos{1-pre-textuais/agradecimentos}
+	\imprimirepigrafe{1-pre-textuais/epigrafe}
+	\imprimirresumo{1-pre-textuais/resumo}
+	\imprimirabstract{1-pre-textuais/abstract}
+	\renewcommand*\listfigurename{Lista de Figuras} %Se você comentar esta linha o título da lista fica: LISTA DE ILUSTRAÇÕES
+	\imprimirlistadeilustracoes
+	\imprimirlistadetabelas
+	% \imprimirlistadequadros
+	% \imprimirlistadealgoritmos
+	% \imprimirlistadecodigosfonte
+	% \imprimirlistadeabreviaturasesiglas
+	% \imprimirlistadesimbolos{1-pre-textuais/lista-de-simbolos}   
+	\imprimirsumario
+	
+	\setcounter{table}{0}% Deixe este comando antes da primeira tabela.
+	
+	%Elementos textuais
+	\textual
+	\input{2-textuais/1-introducao}
+	\input{2-textuais/2-fundamentacao-teorica}
+	\input{2-textuais/3-metodologia}
+	\input{2-textuais/4-algoritmos}
+    \input{2-textuais/5-resultados}
+    \input{2-textuais/6-conclusao}
+	
+	%Elementos pós-textuais	
+	\bibliography{3-pos-textuais/referencias}
+    \glsaddall
+	\imprimirglossario
+
+	\imprimirapendices
+		% Adicione aqui os apendices do seu trabalho
+            \input{3-pos-textuais/apendices/apendice-form}
+		\input{3-pos-textuais/apendices/apendice-a}
+	\imprimiranexos
+		% Adicione aqui os anexos do seu trabalho
+		\input{3-pos-textuais/anexos/anexo-a}
+	\imprimirindice
+
+\end{document}

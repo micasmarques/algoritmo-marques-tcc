@@ -1,0 +1,48 @@
+\apendice{Algoritmo de Marques e Resumo gerado por Ele}
+\label{ap:A}
+
+\section{Algoritmo de Marques}
+\label{chap:marques_algoritmo}
+\begin{lstlisting}[language=Python]
+# coding=utf-8
+from nltk.tokenize import word_tokenize
+from nltk.tokenize import sent_tokenize
+from nltk.corpus import stopwords
+from string import punctuation
+from nltk.probability import FreqDist
+from collections import defaultdict
+from heapq import nlargest
+
+texto = '''texto'''
+
+pg = texto.split('\n')
+
+sentencas = sent_tokenize(texto)
+palavras = word_tokenize(texto.lower())
+
+stopwords = set(stopwords.words('portugues') + list(punctuation))
+palavras_sem_stopwords = [palavra for palavra in palavras if palavra not in stopwords]
+
+frequencia = FreqDist(palavras_sem_stopwords)
+
+sentencas_importantes = defaultdict(int)
+
+for i, sentenca in enumerate(sentencas):
+    for palavra in word_tokenize(sentenca.lower()):
+        if palavra in frequencia:
+            sentencas_importantes[i] += frequencia[palavra]
+
+idx_sentencas_importantes = nlargest(8, sentencas_importantes, sentencas_importantes.get)
+
+for i in sorted(idx_sentencas_importantes):
+    print(sentencas[i])
+\end{lstlisting}
+
+\section{Resumo gerado pelo Algoritmo de Marques}
+\label{chap:marques_resumo}
+A pandemia da doença pelo coronavírus 2019, COVID-19 (sigla em inglês para coronavírus disease 2019) foi reconhecida pela Organização Mundial da Saúde (OMS) no dia 11 de março de 2020.
+Uma importante questão epidemiológica diz respeito à elevada infectividade do SARS-CoV-2 (sigla em inglês para \textit{severe acute respiratory syndrome} coronavirus 2), agente etiológico da COVID-19, cuja velocidade de propagação pode variar de 1,6 a 4,1.
+Em função da inexistência de medidas preventivas ou terapêuticas específicas para a COVID-19, e sua rápida taxa de transmissão e contaminação, a OMS recomendou aos governos a adoção de intervenções não farmacológicas (INF), as quais incluem medidas de alcance individual (lavagem das mãos, uso de máscaras e restrição social), ambiental (limpeza rotineira de ambientes e superfícies) e comunitário (restrição ou proibição ao funcionamento de escolas e universidades, locais de convívio comunitário, transporte público,
+além de outros espaços onde pode haver aglomeração de pessoas).
+Em relação aos estilos de vida, a restrição social pode levar a uma redução importante nos níveis de atividade física de intensidade moderada a vigorosa, e no aumento de tempo em comportamento sedentário.
+A adoção bem-sucedida de restrição social como medida de Saúde Pública traz comprovados benefícios à redução da taxa de transmissão da COVID-19; entretanto, efeitos negativos, associados a essa restrição, poderão ter consequências para a saúde, no médio e longo prazo.

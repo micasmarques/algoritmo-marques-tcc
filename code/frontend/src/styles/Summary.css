@@ -1,0 +1,16 @@
+.Container {
+  background-color: #f8f9fa;
+  color: #212529;
+  padding: 20px;
+}
+
+.Button {
+  background-color: #007bff;
+  color: #fff;
+  margin-top: 10px;
+}
+
+p {
+  color: #495057;
+  margin-top: 20px;
+}
