@@ -1,5 +1,5 @@
 {
-      "textSummarization": "Sumarização de Texto",
+      "textSummarization": "Algoritmo de Marques para Sumarização de Textos",
       "titleTooltip": "Esta ferramenta usa um algoritmo simples para gerar um resumo do texto fornecido.",
       "inputTooltip": "Digite o texto que você deseja resumir.",
       "numberTooltip": "Digite o número de frases que você deseja que o resumo contenha.",

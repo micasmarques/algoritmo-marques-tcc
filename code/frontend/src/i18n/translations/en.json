@@ -1,5 +1,5 @@
 {
-    "textSummarization": "Text Summarization",
+    "textSummarization": "Marques Algorithm for text summary",
     "titleTooltip": "This tool uses a simple algorithm to generate a summary of the provided text.",
     "inputTooltip": "Enter the text you'd like to summarize.",
     "numberTooltip": "Enter the number of sentences you'd like the summary to contain.",
