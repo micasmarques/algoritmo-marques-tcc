@@ -1,29 +1,69 @@
-# marques_algorithm.py
-from nltk.tokenize import word_tokenize
-from nltk.tokenize import sent_tokenize
+from nltk.tokenize import word_tokenize, sent_tokenize
 from nltk.corpus import stopwords
-from string import punctuation
 from nltk.probability import FreqDist
+from string import punctuation
 from collections import defaultdict
 from heapq import nlargest
+import re
 
 
-def summarize(text, qtd_sentences):
-    sentencas = sent_tokenize(text)
-    palavras = word_tokenize(text.lower())
+def preprocess_text(text):
+    # Lowercase text and remove punctuation and numbers
+    text = text.lower()
+    text = re.sub(r'\d+', '', text)
+    text = re.sub(r'[^\w\s]', '', text)
 
-    var_stopwords = set(stopwords.words('portuguese') + list(punctuation))
-    palavras_sem_stopwords = [palavra for palavra in palavras if palavra not in var_stopwords]
+    return text
 
-    frequencia = FreqDist(palavras_sem_stopwords)
 
-    sentencas_importantes = defaultdict(int)
+def tokenize(text):
+    # Tokenize text into sentences and words
+    sentences = sent_tokenize(text)
+    words = word_tokenize(text)
 
-    for i, sentenca in enumerate(sentencas):
-        for palavra in word_tokenize(sentenca.lower()):
-            if palavra in frequencia:
-                sentencas_importantes[i] += frequencia[palavra]
+    return sentences, words
 
-    idx_sentencas_importantes = nlargest(qtd_sentences, sentencas_importantes, sentencas_importantes.get)
 
-    return [sentencas[i] for i in sorted(idx_sentencas_importantes)]
+def remove_stopwords(words):
+    stopwords_set = set(stopwords.words('portuguese') + list(punctuation))
+    words = [word for word in words if word not in stopwords_set]
+
+    return words
+
+
+def rank_sentences(sentences, freq):
+    # Rank sentences by importance
+    ranked_sentences = defaultdict(int)
+
+    for i, sentence in enumerate(sentences):
+        for word in word_tokenize(sentence.lower()):
+            if word in freq:
+                ranked_sentences[i] += freq[word]
+
+    return ranked_sentences
+
+
+def summarize(text, num_sentences):
+    try:
+        # Preprocess and tokenize text
+        sentences, words = tokenize(text)
+
+        # Remove stopwords
+        words = remove_stopwords(words)
+
+        # Frequency distribution of words
+        freq = FreqDist(words)
+
+        # Rank sentences
+        ranked_sentences = rank_sentences(sentences, freq)
+
+        # Get the most important sentences
+        important_sentences = nlargest(num_sentences, ranked_sentences, ranked_sentences.get)
+
+        # Sort sentences by order in text
+        important_sentences.sort()
+
+        return [sentences[i] for i in important_sentences]
+    except Exception as e:
+        print(f"Error in summarizing text: {e}")
+        return None
