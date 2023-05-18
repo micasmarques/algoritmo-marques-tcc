@@ -1,19 +1,10 @@
-from nltk.tokenize import word_tokenize, sent_tokenize
-from nltk.corpus import stopwords
-from nltk.probability import FreqDist
-from string import punctuation
 from collections import defaultdict
 from heapq import nlargest
-import re
+from string import punctuation
 
-
-def preprocess_text(text):
-    # Lowercase text and remove punctuation and numbers
-    text = text.lower()
-    text = re.sub(r'\d+', '', text)
-    text = re.sub(r'[^\w\s]', '', text)
-
-    return text
+from nltk.corpus import stopwords
+from nltk.probability import FreqDist
+from nltk.tokenize import word_tokenize, sent_tokenize
 
 
 def tokenize(text):

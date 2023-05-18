@@ -1,0 +1,13 @@
+{
+    "textSummarization": "Text Summarization",
+    "titleTooltip": "This tool uses a simple algorithm to generate a summary of the provided text.",
+    "inputTooltip": "Enter the text you'd like to summarize.",
+    "numberTooltip": "Enter the number of sentences you'd like the summary to contain.",
+    "buttonTooltip": "Click this button to generate the summary.",
+    "enterText": "Enter Text",
+    "numberOfSentences": "Number of Sentences",
+    "summarize": "Summarize",
+    "summary": "Summary",
+    "defaultSummary": "Your summarized text will appear here...",
+    "enterValidNumber": "Please enter a valid number of sentences (greater than or equal to 1)."
+}

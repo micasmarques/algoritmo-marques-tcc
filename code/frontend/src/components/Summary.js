@@ -1,32 +1,40 @@
 import React, { useState } from 'react';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
 
 function Summary() {
+  const { t } = useTranslation();
   const [text, setText] = useState('');
   const [numSentences, setNumSentences] = useState(1);
-  const [summary, setSummary] = useState('');
+  const [summary, setSummary] = useState(t('defaultSummary'));
 
   const handleClick = () => {
-    fetch('http://localhost:5000/summarize', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        text,
-        num_sentences: numSentences
+    if (numSentences >= 1) {
+      fetch('http://localhost:5000/summarize', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          text,
+          num_sentences: numSentences
+        })
       })
-    })
-      .then(response => response.json())
-      .then(data => {
-        setSummary(data.summary);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+        .then(response => response.json())
+        .then(data => {
+          setSummary(data.summary);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    } else {
+      alert(t('enterValidNumber'));
+    }
   };
 
   return (
@@ -40,28 +48,37 @@ function Summary() {
         gap: 2
       }}
     >
-      <Typography variant="h4" component="div" gutterBottom>
-        Text Summarization
-      </Typography>
-      <TextField
-        variant="outlined"
-        multiline
-        rows={4}
-        fullWidth
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        label="Enter Text"
-      />
-      <TextField
-        variant="outlined"
-        type="number"
-        value={numSentences}
-        onChange={(e) => setNumSentences(e.target.value)}
-        label="Number of Sentences"
-      />
-      <Button variant="contained" onClick={handleClick}>
-        Summarize
-      </Button>
+      <LanguageSwitcher />
+      <Tooltip title={t('titleTooltip')}>
+        <Typography variant="h4" component="div" gutterBottom>
+          {t('textSummarization')}
+        </Typography>
+      </Tooltip>
+      <Tooltip title={t('inputTooltip')}>
+        <TextField
+          variant="outlined"
+          multiline
+          rows={4}
+          fullWidth
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          label={t('enterText')}
+        />
+      </Tooltip>
+      <Tooltip title={t('numberTooltip')}>
+        <TextField
+          variant="outlined"
+          type="number"
+          value={numSentences}
+          onChange={(e) => setNumSentences(e.target.value)}
+          label={t('numberOfSentences')}
+        />
+      </Tooltip>
+      <Tooltip title={t('buttonTooltip')}>
+        <Button variant="contained" onClick={handleClick}>
+          {t('summarize')}
+        </Button>
+      </Tooltip>
       <Box
         sx={{
           width: '100%',
@@ -74,7 +91,7 @@ function Summary() {
         }}
       >
         <Typography variant="h6" component="div" gutterBottom>
-          Summary
+          {t('summary')}
         </Typography>
         <Typography variant="body1">{summary}</Typography>
       </Box>

@@ -1,0 +1,13 @@
+{
+      "textSummarization": "Sumarização de Texto",
+      "titleTooltip": "Esta ferramenta usa um algoritmo simples para gerar um resumo do texto fornecido.",
+      "inputTooltip": "Digite o texto que você deseja resumir.",
+      "numberTooltip": "Digite o número de frases que você deseja que o resumo contenha.",
+      "buttonTooltip": "Clique neste botão para gerar o resumo.",
+      "enterText": "Digite o Texto",
+      "numberOfSentences": "Número de Frases",
+      "summarize": "Resumir",
+      "summary": "Resumo",
+      "defaultSummary": "Seu texto resumido aparecerá aqui...",
+      "enterValidNumber": "Por favor, digite um número válido de frases (maior ou igual a 1)."
+}
