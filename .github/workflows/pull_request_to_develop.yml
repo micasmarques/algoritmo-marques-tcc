@@ -1,0 +1,22 @@
+name: Pull Request to Develop
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  create_pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: develop
+          base: develop
+          title: Automated Pull Request
+          token: ${{ secrets.GITHUB_TOKEN }}
