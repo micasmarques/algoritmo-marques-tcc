@@ -101,13 +101,13 @@ function Summary() {
                 <Typography variant="h6" component="div" gutterBottom>
                     {t('summary')}
                 </Typography>
-                <Typography variant="body1">{summary}</Typography>
-                {summary && (
-                    <Button variant="contained" onClick={handleClearSummary}>
-                        {t('clearSummary')}
-                    </Button>
-                )}
+                <Typography variant="body1" component="pre" style={{whiteSpace: 'pre-wrap'}}>{summary}</Typography>
             </Box>
+            {summary && (
+                <Button variant="contained" onClick={handleClearSummary}>
+                    {t('resetSummary')}
+                </Button>
+            )}
             {text && (
                 <Button variant="contained" onClick={handleClearText}>
                     {t('clearText')}
