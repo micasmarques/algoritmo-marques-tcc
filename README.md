@@ -69,7 +69,6 @@ O repositório possui a seguinte estrutura de arquivos e diretórios:
           - SummaryResult.js
         - index.js
       - package.json
-  - tcc_documentation/
 
 ## Como Contribuir
 
