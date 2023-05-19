@@ -6,15 +6,63 @@ Este repositório contém informações e recursos relacionados a um projeto de 
 
 A sumarização automática de textos é uma área de pesquisa em processamento de linguagem natural (PLN) que busca desenvolver métodos para criar resumos concisos e informativos a partir de documentos ou conjuntos de documentos. O projeto explora diferentes técnicas e abordagens de sumarização, incluindo algoritmos baseados em extração e abstração, e avalia seu desempenho por meio de métricas quantitativas e qualitativas.
 
-## Conteúdo do Repositório
+## Configuração do Ambiente
 
-O repositório inclui os seguintes arquivos e diretórios:
+### Linux
 
-- `datasets/`: Diretório contendo conjuntos de dados utilizados para treinamento e avaliação dos algoritmos de sumarização.
-- `code/`: Diretório com o código-fonte dos algoritmos de sumarização e scripts para avaliação.
-- `results/`: Diretório com os resultados das avaliações dos algoritmos, incluindo métricas quantitativas e feedback de usuários.
-- `papers/`: Diretório com artigos e publicações relacionadas ao projeto.
-- `README.md`: Este arquivo, contendo informações gerais sobre o projeto e o repositório.
+1. Instale o Python 3.10 executando o seguinte comando:
+```bash
+sudo apt update
+sudo apt install python3.10
+```
+
+2. Instale o npm (Node.js Package Manager) executando o seguinte comando:
+
+```bash
+sudo apt update
+sudo apt install npm
+```
+
+3. Execute o script `setup_linux.sh` para configurar o ambiente do projeto no Linux:
+```bash
+bash setup_linux.sh
+```
+
+### Windows
+
+1. Baixe e instale o Python 3.10 a partir do site oficial: https://www.python.org/downloads/
+
+2. Baixe e instale o Node.js a partir do site oficial: https://nodejs.org/
+
+3. Execute o script `setup_windows.ps1` para configurar o ambiente do projeto no Windows. Abra o PowerShell e execute o seguinte comando:
+```bash
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+./setup_windows.ps1
+```
+
+## Estrutura do Repositório
+
+O repositório possui a seguinte estrutura de arquivos e diretórios:
+
+- tcc_project/
+  - code/
+    - backend/
+      - src/
+        - algorithm/
+          - marques_algorithm.py
+        - main.py
+      - requirements.txt
+    - frontend/
+      - public/
+        - index.html
+      - src/
+        - components/
+          - Summary.js
+          - TextEditor.js
+          - SummaryResult.js
+        - index.js
+      - package.json
+  - tcc_documentation/
 
 ## Como Contribuir
 
@@ -36,8 +84,8 @@ Este projeto é licenciado sob a Licença MIT. Consulte o arquivo `LICENSE` para
 
 Se você tiver dúvidas, sugestões ou comentários sobre o projeto, sinta-se à vontade para entrar em contato através do e-mail: micasmarques1132@gmail.com
 
-
 # Proximos passos
+
 1. **Aprimoramento do algoritmo de Marques:**
    - Identificar limitações e pontos fracos do algoritmo atual.
    - Pesquisar técnicas de processamento de linguagem natural e aprendizado de máquina relevantes para abordar essas limitações.
