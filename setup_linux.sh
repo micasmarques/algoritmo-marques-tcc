@@ -21,6 +21,9 @@ curl https://bootstrap.pypa.io/get-pip.py | sudo python3.10
 # Instala os pacotes Python
 python3.10 -m pip install nltk flask flask_cors PyPDF2
 
+# Baixa os arquivos nltk
+python3.10 -m nltk.downloader stopwords punkt
+
 # Verifica se o Node.js e npm estão instalados
 if ! command -v node &> /dev/null
 then

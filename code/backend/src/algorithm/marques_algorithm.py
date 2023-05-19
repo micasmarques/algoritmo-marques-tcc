@@ -57,4 +57,5 @@ def summarize(text, num_sentences):
         return [sentences[i] for i in important_sentences]
     except Exception as e:
         print(f"Error in summarizing text: {e}")
+        raise e
         return None
