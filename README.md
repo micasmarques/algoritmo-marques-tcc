@@ -8,6 +8,13 @@ A sumarização automática de textos é uma área de pesquisa em processamento 
 
 ## Configuração do Ambiente
 
+## Download do Projeto
+1. Clique no botão "Code" (ou "Código") localizado no canto direito superior dessa pagina
+2. No menu suspenso, clique na opção "Download ZIP" (ou "Baixar ZIP").
+3. O arquivo ZIP do repositório será baixado para o seu computador.
+
+Depois de seguir esses passos, você terá o repositório baixado como um arquivo ZIP em seu computador. Você pode extrair o conteúdo do arquivo ZIP para acessar os arquivos e pastas do repositório localmente.
+
 ### Linux
 
 1. Instale o Python 3.10 executando o seguinte comando:
