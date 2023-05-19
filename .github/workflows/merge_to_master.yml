@@ -1,0 +1,16 @@
+name: Merge to Master
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Define o horário de acordo com a sintaxe cron
+
+jobs:
+  merge_to_master:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Merge to Master
+        run: git merge develop # Realiza o merge da branch "develop" na branch "master"
