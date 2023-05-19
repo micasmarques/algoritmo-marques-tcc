@@ -15,7 +15,7 @@ function Summary() {
 
     const handleClick = () => {
         if (numSentences >= 1) {
-            fetch('https://algoritmo-de-marques.rj.r.appspot.com/summarize', {
+            fetch('http://localhost:5000/summarize', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
