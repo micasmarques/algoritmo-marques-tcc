@@ -15,6 +15,12 @@ A sumarização automática de textos é uma área de pesquisa em processamento 
 
 Depois de seguir esses passos, você terá o repositório baixado como um arquivo ZIP em seu computador. Você pode extrair o conteúdo do arquivo ZIP para acessar os arquivos e pastas do repositório localmente.
 
+### Docker
+
+Execute o projeto com o docker compose.
+```bash
+docker compose up --build
+```
 ### Linux
 
 1. Instale o Python 3.10 executando o seguinte comando:
