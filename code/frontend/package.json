@@ -4,7 +4,8 @@
   "description": "A web interface for the Marques Text Summarization algorithm.",
   "main": "index.js",
   "scripts": {
-    "start": "parcel src/index.html"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   },
   "keywords": [
     "text-summarization",
@@ -18,6 +19,7 @@
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@material-ui/core": "^4.12.4",
+    "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.1",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",

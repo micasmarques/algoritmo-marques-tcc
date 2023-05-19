@@ -9,5 +9,6 @@
     "summarize": "Summarize",
     "summary": "Summary",
     "defaultSummary": "Your summarized text will appear here...",
-    "enterValidNumber": "Please enter a valid number of sentences (greater than or equal to 1)."
+    "enterValidNumber": "Please enter a valid number of sentences (greater than or equal to 1).",
+    "resetSummary": "Summary Reset"
 }
