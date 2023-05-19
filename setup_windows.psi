@@ -1,0 +1,40 @@
+# Verifique se o python está instalado
+$pythonVersion = python --version 2>&1
+if ($pythonVersion -match "Python 3.10") {
+    Write-Output "Python 3.10 já está instalado."
+} else {
+    Write-Output "Python 3.10 não está instalado."
+    Write-Output "Por favor, instale Python 3.10 do site oficial: https://www.python.org/downloads/"
+    exit 1
+}
+
+# Atualiza o pip
+python -m pip install --upgrade pip
+
+# Instala os pacotes Python
+python -m pip install nltk flask flask_cors PyPDF2
+
+# Verifique se o node.js e npm estão instalados
+$nodeVersion = node --version 2>&1
+if ($nodeVersion -match "v") {
+    Write-Output "Node.js já está instalado."
+} else {
+    Write-Output "Node.js não está instalado."
+    Write-Output "Por favor, instale Node.js do site oficial: https://nodejs.org/"
+    exit 1
+}
+
+# Muda para o diretório do frontend e roda o npm install
+Set-Location -Path code/frontend
+npm install
+
+# Volta para o diretório principal
+Set-Location -Path ../..
+
+# Roda o programa principal Python
+Start-Process -NoNewWindow -FilePath "python" -ArgumentList "main.py"
+
+# Muda para o diretório do frontend e roda o npm start
+Set-Location -Path ../../frontend
+Start-Process -NoNewWindow -FilePath "npm" -ArgumentList "start"
+
