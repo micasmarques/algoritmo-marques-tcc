@@ -12,5 +12,6 @@
     "enterValidNumber": "Please enter a valid number of sentences (greater than or equal to 1).",
     "resetSummary": "Reset Summary",
     "resetText": "Reset Text",
-    "toggleTheme": "Toggle Theme"
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode"
 }

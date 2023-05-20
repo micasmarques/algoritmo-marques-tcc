@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 import CssBaseline from '@material-ui/core/CssBaseline';
+import ThemeSwitcher from "./ThemeSwitcher";
 
 function Summary() {
     const {t} = useTranslation();
@@ -45,10 +46,6 @@ function Summary() {
         },
     });
 
-
-    const handleThemeChange = () => {
-        setDarkMode(!darkMode);
-    };
 
     const handleClick = () => {
         if (numSentences >= 1) {
@@ -99,9 +96,7 @@ function Summary() {
                 }}
             >
                 <LanguageSwitcher/>
-                <Button variant="contained" onClick={handleThemeChange}>
-                    {t('toggleTheme')}
-                </Button>
+                <ThemeSwitcher darkMode={darkMode} setDarkMode={setDarkMode}/>
                 <Tooltip title={t('titleTooltip')}>
                     <Typography variant="h4" component="div" gutterBottom sx={{color: theme.palette.text.primary}}>
                         {t('textSummarization')}
@@ -136,7 +131,11 @@ function Summary() {
                                 onChange={(e) => setText(e.target.value)}
                                 label={t('enterText')}
                                 maxRows={10}
-                                sx={{overflow: 'auto', color: theme.palette.text.primary}}
+                                sx={{
+                                    overflow: 'auto',
+                                    color: theme.palette.text.primary,
+                                    marginBottom: '5px' // Use a medida que seja adequada para o seu layout
+                                }}
                             />
                         </Tooltip>
                         <Tooltip title={t('numberTooltip')}>
