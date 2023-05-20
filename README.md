@@ -66,14 +66,24 @@ O repositório possui a seguinte estrutura de arquivos e diretórios:
         - main.py
       - requirements.txt
     - frontend/
-      - public/
-        - index.html
       - src/
         - components/
           - Summary.js
-          - TextEditor.js
-          - SummaryResult.js
+          - InputText.js
+          - ThemeSwitcher.js
+          - LanguageSwitcher.js
+          - FileUploader.js
+        - i18n/
+          - translations/
+            - en.json
+            - pt.json
+        - styles/
+          - App.css
+          - Summary.css
         - index.js
+        - index.html
+        - i18n.js
+        - App.js
       - package.json
 
 ## Como Contribuir
