@@ -103,7 +103,7 @@ function Summary() {
                     {t('toggleTheme')}
                 </Button>
                 <Tooltip title={t('titleTooltip')}>
-                    <Typography variant="h4" component="div" gutterBottom style={{color: theme.palette.text.primary}}>
+                    <Typography variant="h4" component="div" gutterBottom sx={{color: theme.palette.text.primary}}>
                         {t('textSummarization')}
                     </Typography>
                 </Tooltip>
@@ -136,7 +136,7 @@ function Summary() {
                                 onChange={(e) => setText(e.target.value)}
                                 label={t('enterText')}
                                 maxRows={10}
-                                style={{overflow: 'auto', color: theme.palette.text.primary}}
+                                sx={{overflow: 'auto', color: theme.palette.text.primary}}
                             />
                         </Tooltip>
                         <Tooltip title={t('numberTooltip')}>
@@ -146,7 +146,7 @@ function Summary() {
                                 value={numSentences}
                                 onChange={(e) => setNumSentences(Number(e.target.value))}
                                 label={t('numberOfSentences')}
-                                style={{color: theme.palette.text.primary}}
+                                sx={{color: theme.palette.text.primary}}
                             />
                         </Tooltip>
                         {text && (
@@ -183,13 +183,12 @@ function Summary() {
                             textAlign: 'center'
                         }}
                     >
-                        <Typography variant="h6" component="div" gutterBottom
-                                    style={{color: theme.palette.text.primary}}>
+                        <Typography variant="h6" component="div" gutterBottom sx={{color: theme.palette.text.primary}}>
                             {t('summary')}
                         </Typography>
                         <Box sx={{overflow: 'auto', maxHeight: '180px'}}>
                             <Typography variant="body1" component="pre"
-                                        style={{
+                                        sx={{
                                             whiteSpace: 'pre-wrap',
                                             textAlign: 'justify',
                                             color: theme.palette.text.primary
