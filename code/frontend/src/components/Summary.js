@@ -19,8 +19,32 @@ function Summary() {
     const theme = createTheme({
         palette: {
             mode: darkMode ? 'dark' : 'light',
+            ...(darkMode ? {
+                primary: {
+                    main: '#ffffff',
+                },
+                secondary: {
+                    main: '#ffffff',
+                },
+                text: {
+                    primary: '#ffffff',
+                    secondary: '#ffffff',
+                },
+            } : {
+                primary: {
+                    main: '#000000',
+                },
+                secondary: {
+                    main: '#000000',
+                },
+                text: {
+                    primary: '#000000',
+                    secondary: '#000000',
+                },
+            })
         },
     });
+
 
     const handleThemeChange = () => {
         setDarkMode(!darkMode);
@@ -69,7 +93,8 @@ function Summary() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     minHeight: '100vh',
-                    gap: 2,
+                    gap: 3,
+                    p: 2,
                     bgcolor: theme.palette.background.default
                 }}
             >
@@ -78,7 +103,7 @@ function Summary() {
                     {t('toggleTheme')}
                 </Button>
                 <Tooltip title={t('titleTooltip')}>
-                    <Typography variant="h4" component="div" gutterBottom>
+                    <Typography variant="h4" component="div" gutterBottom style={{color: theme.palette.text.primary}}>
                         {t('textSummarization')}
                     </Typography>
                 </Tooltip>
@@ -86,10 +111,11 @@ function Summary() {
                     sx={{
                         display: 'flex',
                         flexDirection: 'row',
-                        alignItems: 'stretch',
-                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        justifyContent: 'space-around',
                         gap: 2,
-                        width: '100%',
+                        width: '80%',
+                        flexWrap: 'wrap'
                     }}
                 >
                     <Box
@@ -97,7 +123,8 @@ function Summary() {
                             display: 'flex',
                             flexDirection: 'column',
                             gap: 2,
-                            width: '45%', // adjust this as needed
+                            width: {xs: '100%', sm: '45%'},
+                            mt: 2,
                         }}
                     >
                         <Tooltip title={t('inputTooltip')}>
@@ -109,7 +136,7 @@ function Summary() {
                                 onChange={(e) => setText(e.target.value)}
                                 label={t('enterText')}
                                 maxRows={10}
-                                style={{overflow: 'auto'}}
+                                style={{overflow: 'auto', color: theme.palette.text.primary}}
                             />
                         </Tooltip>
                         <Tooltip title={t('numberTooltip')}>
@@ -119,6 +146,7 @@ function Summary() {
                                 value={numSentences}
                                 onChange={(e) => setNumSentences(Number(e.target.value))}
                                 label={t('numberOfSentences')}
+                                style={{color: theme.palette.text.primary}}
                             />
                         </Tooltip>
                         {text && (
@@ -133,6 +161,7 @@ function Summary() {
                             flexDirection: 'column',
                             justifyContent: 'center',
                             gap: 2,
+                            mt: 2,
                         }}
                     >
                         <Tooltip title={t('buttonTooltip')}>
@@ -146,20 +175,25 @@ function Summary() {
                             display: 'flex',
                             flexDirection: 'column',
                             gap: 2,
-                            width: '45%', // adjust this as needed
-                            margin: '20px auto',
+                            width: {xs: '100%', sm: '45%'},
+                            mt: 2,
                             padding: '20px',
                             border: '1px solid #ccc',
                             borderRadius: '4px',
                             textAlign: 'center'
                         }}
                     >
-                        <Typography variant="h6" component="div" gutterBottom>
+                        <Typography variant="h6" component="div" gutterBottom
+                                    style={{color: theme.palette.text.primary}}>
                             {t('summary')}
                         </Typography>
                         <Box sx={{overflow: 'auto', maxHeight: '180px'}}>
                             <Typography variant="body1" component="pre"
-                                        style={{whiteSpace: 'pre-wrap', textAlign: 'justify'}}>{summary}</Typography>
+                                        style={{
+                                            whiteSpace: 'pre-wrap',
+                                            textAlign: 'justify',
+                                            color: theme.palette.text.primary
+                                        }}>{summary}</Typography>
                         </Box>
                         {summary && (
                             <Button variant="contained" onClick={handleClearSummary}>
