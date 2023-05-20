@@ -95,8 +95,6 @@ function Summary() {
                     bgcolor: theme.palette.background.default
                 }}
             >
-                <LanguageSwitcher/>
-                <ThemeSwitcher darkMode={darkMode} setDarkMode={setDarkMode}/>
                 <Tooltip title={t('titleTooltip')}>
                     <Typography variant="h4" component="div" gutterBottom sx={{color: theme.palette.text.primary}}>
                         {t('textSummarization')}
