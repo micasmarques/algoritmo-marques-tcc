@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: scale-up-cronjob
+spec:
+  schedule: "0 6 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: scale-up
+            image: google/cloud-sdk
+            command: ["/bin/bash", "/path/to/your/scale_up.sh"]
+          restartPolicy: OnFailure

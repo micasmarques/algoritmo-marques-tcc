@@ -1,0 +1,19 @@
+version: "3.9"
+
+networks:
+  algoritmo-netowrk:
+    driver: bridge
+
+services:
+  front:
+    build: ./code/frontend
+    ports:
+      - "1234:1234"
+    networks:
+      - algoritmo-netowrk
+  back:
+    build: ./code/backend
+    ports:
+      - "5000:5000"
+    networks:
+      - algoritmo-netowrk
