@@ -6,8 +6,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './i18n';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <React.StrictMode>
     <App />
-  </BrowserRouter>,
+  </React.StrictMode>,
   document.getElementById('root')
 );

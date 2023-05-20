@@ -1,12 +1,11 @@
-import React, {useState} from 'react';
-import {useTranslation} from 'react-i18next';
-import {Navbar, Nav} from 'react-bootstrap';
-import LanguageSwitcher from './components/LanguageSwitcher';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Navbar, Nav } from 'react-bootstrap';
 import ThemeSwitcher from './components/ThemeSwitcher';
 import Summary from './components/Summary';
 
 function App() {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     const [darkMode, setDarkMode] = useState(false);
 
     return (
@@ -19,7 +18,6 @@ function App() {
                         <Nav.Link href="#about">{t('about')}</Nav.Link>
                     </Nav>
                     <Nav>
-                        <LanguageSwitcher/>
                         <ThemeSwitcher darkMode={darkMode} setDarkMode={setDarkMode}/>
                     </Nav>
                 </Navbar.Collapse>
