@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import LanguageSwitcher from './LanguageSwitcher';
 import {useTranslation} from 'react-i18next';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -8,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 import CssBaseline from '@material-ui/core/CssBaseline';
-import ThemeSwitcher from "./ThemeSwitcher";
 
 function Summary() {
     const {t} = useTranslation();
