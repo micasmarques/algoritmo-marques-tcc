@@ -8,7 +8,6 @@ from nltk.tokenize import word_tokenize, sent_tokenize
 
 
 def tokenize(text):
-    # Tokenize text into sentences and words
     sentences = sent_tokenize(text)
     words = word_tokenize(text)
 
@@ -23,7 +22,6 @@ def remove_stopwords(words):
 
 
 def rank_sentences(sentences, freq):
-    # Rank sentences by importance
     ranked_sentences = defaultdict(int)
 
     for i, sentence in enumerate(sentences):
@@ -36,25 +34,20 @@ def rank_sentences(sentences, freq):
 
 def summarize(text, num_sentences):
     try:
-        # Preprocess and tokenize text
         sentences, words = tokenize(text)
 
-        # Remove stopwords
         words = remove_stopwords(words)
 
-        # Frequency distribution of words
         freq = FreqDist(words)
 
-        # Rank sentences
         ranked_sentences = rank_sentences(sentences, freq)
 
-        # Get the most important sentences
         important_sentences = nlargest(num_sentences, ranked_sentences, ranked_sentences.get)
 
-        # Sort sentences by order in text
         important_sentences.sort()
 
         return [sentences[i] for i in important_sentences]
     except Exception as e:
         print(f"Error in summarizing text: {e}")
+        raise e
         return None

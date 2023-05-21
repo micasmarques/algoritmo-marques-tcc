@@ -10,5 +10,8 @@
       "summary": "Resumo",
       "defaultSummary": "Seu texto resumido aparecerá aqui...",
       "enterValidNumber": "Por favor, digite um número válido de frases (maior ou igual a 1).",
-      "resetSummary": "Resetar Resumo"
+      "resetSummary": "Limpar Resumo",
+      "resetText": "Limpar Texto",
+      "darkMode": "Modo Escuro",
+      "lightMode": "Modo Claro"
 }
