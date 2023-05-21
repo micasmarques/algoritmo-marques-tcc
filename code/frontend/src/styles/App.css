@@ -1,7 +1,19 @@
 .App {
-    text-align: center;
-    padding: 20px;
+  text-align: center;
 }
+
+.top-navbar {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 
 textarea {
     width: 100%;
@@ -15,19 +27,27 @@ button {
     margin-bottom: 20px;
 }
 
-.dark-mode {
-  background-color: #222;
-  color: #fff;
+/*.top-navbar {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center; !* Adicione esta linha para centralizar verticalmente *!*/
+/*    width: 100%;*/
+/*}*/
+
+.navbar-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.dark-mode-switch {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+.bottom-navbar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
-body.dark-mode {
-  background-color: #222;
-  color: #fff;
+.bottom-navbar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
-

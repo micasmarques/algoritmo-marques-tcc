@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {Link, BrowserRouter as Router} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
-import {Navbar, Nav, Form} from 'react-bootstrap';
+import {Navbar, Nav} from 'react-bootstrap';
 import Summary from './components/Summary';
 import {FaGithub, FaLinkedin, FaInstagram, FaEnvelope} from 'react-icons/fa';
 import './styles/App.css';
 
 function App() {
     const {t} = useTranslation();
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode] = useState(false);
 
     useEffect(() => {
         if (darkMode) {
@@ -18,42 +18,41 @@ function App() {
         }
     }, [darkMode]);
 
-    const handleThemeSwitch = () => {
-        setDarkMode(!darkMode);
-    };
-
     return (
         <Router>
             <div className="App">
-                <Navbar bg="light" expand="lg">
-                    <Navbar.Brand>{t('Algoritmo de Marques')}</Navbar.Brand>
+                <Navbar bg="light" expand="lg" className="top-navbar">
+                    <Navbar.Brand className="navbar-center">
+                        {t('Algoritmo de Marques')}
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbar"/>
                     <Navbar.Collapse id="navbar">
-                        <Nav className="mr-auto">
-                            <Link to="https://github.com/micasmarques/algoritmo-marques-tcc" target="_blank">
+                        <Nav className="ml-auto">
+                            <Nav.Link
+                                href="https://github.com/micasmarques/algoritmo-marques-tcc"
+                                target="_blank"
+                            >
                                 {t('Sobre')} <FaGithub/>
-                            </Link>
+                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
-                    <Form.Check
-                        type="switch"
-                        id="theme-switch"
-                        label={darkMode ? t('Tema Claro') : t('Tema Escuro')}
-                        checked={darkMode}
-                        onChange={handleThemeSwitch}
-                        className="ml-auto"
-                    />
                 </Navbar>
                 <Summary/>
-                <Navbar fixed="bottom" bg="light">
+                <Navbar fixed="bottom" bg="light" className="bottom-navbar">
                     <Nav className="mx-auto">
                         <Nav.Link href="https://github.com/micasmarques" target="_blank">
                             <FaGithub/>
                         </Nav.Link>
-                        <Nav.Link href="https://www.linkedin.com/in/micael-marques/" target="_blank">
+                        <Nav.Link
+                            href="https://www.linkedin.com/in/micael-marques/"
+                            target="_blank"
+                        >
                             <FaLinkedin/>
                         </Nav.Link>
-                        <Nav.Link href="https://www.instagram.com/micasmarques/" target="_blank">
+                        <Nav.Link
+                            href="https://www.instagram.com/micasmarques/"
+                            target="_blank"
+                        >
                             <FaInstagram/>
                         </Nav.Link>
                         <Nav.Link href="mailto:micasmarques1132@gmail.com">
