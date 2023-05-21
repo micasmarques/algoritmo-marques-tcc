@@ -14,3 +14,20 @@ button {
     padding: 10px 20px;
     margin-bottom: 20px;
 }
+
+.dark-mode {
+  background-color: #222;
+  color: #fff;
+}
+
+.dark-mode-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+body.dark-mode {
+  background-color: #222;
+  color: #fff;
+}
+
