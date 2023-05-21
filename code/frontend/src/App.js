@@ -1,13 +1,68 @@
-import React from 'react';
-import './styles/App.css';
+import React, {useState, useEffect} from 'react';
+import {Link, BrowserRouter as Router} from 'react-router-dom';
+import {useTranslation} from 'react-i18next';
+import {Navbar, Nav} from 'react-bootstrap';
 import Summary from './components/Summary';
+import {FaGithub, FaLinkedin, FaInstagram, FaEnvelope} from 'react-icons/fa';
+import './styles/App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <Summary />
-    </div>
-  );
+    const {t} = useTranslation();
+    const [darkMode] = useState(false);
+
+    useEffect(() => {
+        if (darkMode) {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+    }, [darkMode]);
+
+    return (
+        <Router>
+            <div className="App">
+                <Navbar bg="light" expand="lg" className="top-navbar">
+                    <Navbar.Brand className="navbar-center">
+                        {t('Algoritmo de Marques')}
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="navbar"/>
+                    <Navbar.Collapse id="navbar">
+                        <Nav className="ml-auto">
+                            <Nav.Link
+                                href="https://github.com/micasmarques/algoritmo-marques-tcc"
+                                target="_blank"
+                            >
+                                {t('Sobre')} <FaGithub/>
+                            </Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
+                <Summary/>
+                <Navbar fixed="bottom" bg="light" className="bottom-navbar">
+                    <Nav className="mx-auto">
+                        <Nav.Link href="https://github.com/micasmarques" target="_blank">
+                            <FaGithub/>
+                        </Nav.Link>
+                        <Nav.Link
+                            href="https://www.linkedin.com/in/micael-marques/"
+                            target="_blank"
+                        >
+                            <FaLinkedin/>
+                        </Nav.Link>
+                        <Nav.Link
+                            href="https://www.instagram.com/micasmarques/"
+                            target="_blank"
+                        >
+                            <FaInstagram/>
+                        </Nav.Link>
+                        <Nav.Link href="mailto:micasmarques1132@gmail.com">
+                            <FaEnvelope/>
+                        </Nav.Link>
+                    </Nav>
+                </Navbar>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
