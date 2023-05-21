@@ -27,13 +27,6 @@ button {
     margin-bottom: 20px;
 }
 
-/*.top-navbar {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center; !* Adicione esta linha para centralizar verticalmente *!*/
-/*    width: 100%;*/
-/*}*/
-
 .navbar-center {
     display: flex;
     justify-content: center;
