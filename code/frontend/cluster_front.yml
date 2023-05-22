@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: frontend-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: frontend
@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gcr.io/marques-algorithm-container/frontend:tag
+        image: gcr.io/marques-algorithm-container/frontend:v1
         ports:
-        - containerPort: 80
+        - containerPort: 1234
 ---
 apiVersion: v1
 kind: Service
@@ -28,5 +28,4 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
-  type: LoadBalancer
+      targetPort: 1234
