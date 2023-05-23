@@ -7,7 +7,12 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route('/summarize', methods=['POST'])
+@app.route('/')
+def index():
+    return 'OK'
+
+
+@app.route('/api/summarize', methods=['POST'])
 def summarize_text():
     data = request.get_json()
     text = data['text']

@@ -58,3 +58,5 @@ netlify-functions/
 
 # Yarn integrity file
 .yarn-integrity
+
+*.pem

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: gcr.io/marques-algorithm-container/backend:v1
+        image: gcr.io/marques-algorithm-container/backend:v4
         ports:
         - containerPort: 8080
 ---

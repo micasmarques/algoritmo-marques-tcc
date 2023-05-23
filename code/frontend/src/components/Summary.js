@@ -47,7 +47,7 @@ function Summary() {
 
     const handleClick = () => {
         if (numSentences >= 1) {
-            fetch('http://algorithm.micaelmarques.dev/api/summarize', {
+            fetch('https://algorithm.micaelmarques.dev/api/summarize', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

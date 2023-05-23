@@ -1,4 +1,3 @@
-# remover gce e buildar e aplicar de novo
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -6,10 +5,10 @@ metadata:
   annotations:
     kubernetes.io/ingress.global-static-ip-name: web-static-ip
     kubernetes.io/ingress.class: "gce"
+    ingress.gcp.kubernetes.io/pre-shared-cert: 'certificado-marques'
 spec:
   rules:
-  - host: algorithm.micaelmarques.dev
-    http:
+  - http:
       paths:
       - pathType: Prefix
         path: "/"

@@ -7,7 +7,7 @@ function InputText() {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        const response = await axios.post('http://localhost:5000/summarize', { text, numSentences });
+        const response = await axios.post('https://algorithm.micaelmarques.dev/api/summarize', { text, numSentences });
         console.log(response.data.summary);
     };
 
