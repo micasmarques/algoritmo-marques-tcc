@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gcr.io/marques-algorithm-container/frontend:v3
+        image: gcr.io/marques-algorithm-container/frontend:v4
         ports:
         - containerPort: 1234
 ---
