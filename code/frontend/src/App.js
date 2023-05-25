@@ -39,15 +39,6 @@ function App() {
                                 {t('Sobre')} <FaGithub/>
                             </Nav.Link>
                         </Nav>
-                        <Form inline>
-                            <Form.Check
-                                type="switch"
-                                id="custom-switch"
-                                label="Dark Mode"
-                                checked={darkMode}
-                                onChange={handleDarkModeChange}
-                            />
-                        </Form>
                     </Navbar.Collapse>
                 </Navbar>
                 <Summary/>
