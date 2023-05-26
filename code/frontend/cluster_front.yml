@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gcr.io/marques-algorithm-container/frontend:v5
+        image: gcr.io/marques-algorithm-container/frontend:v6
         ports:
         - containerPort: 1234
 ---
@@ -29,3 +29,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 1234
+
